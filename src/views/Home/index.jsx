@@ -3,6 +3,7 @@ import Input from "../../components/input";
 import { INITIAL_INPUT_VALUES, INPUTS_PROPS_LIST } from "./constants";
 import ResultsTable from "../../components/results-table";
 import { calculateInvestmentResults } from "../../util/investment";
+import logo from "./../../assets/investment-calculator-logo.png";
 
 const Home = () => {
   const [inputs, setInputs] = useState(INITIAL_INPUT_VALUES);
@@ -28,6 +29,7 @@ const Home = () => {
   return (
     <>
       <div id="header">
+        <img src={logo} alt="" />
         <h1>React Investment Calculator</h1>
       </div>
 
