@@ -1,16 +1,15 @@
 import React from "react";
 import { formatter } from "../../util/investment";
+import { RESULTS_TABLE_HEADERS } from "./constatns";
 
 const ResultsTable = ({ data, ...props }) => {
   console.log(data);
   return (
     <table {...props}>
       <thead>
-        <th>Year</th>
-        <th>Investment Value</th>
-        <th>Interest(Year)</th>
-        <th>Total Interest</th>
-        <th>Invested Captial</th>
+        {RESULTS_TABLE_HEADERS.map((header) => (
+          <th key={header}>{header}</th>
+        ))}
       </thead>
       <tbody>
         {data.map((row, index) => {
