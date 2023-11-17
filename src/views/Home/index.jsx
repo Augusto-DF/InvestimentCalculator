@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Input from "../../components/input";
 import { INITIAL_INPUT_VALUES, INPUTS_PROPS_LIST } from "./constants";
+import ResultsTable from "../../components/results-table";
+import { calculateInvestmentResults } from "../../util/investment";
 
 const Home = () => {
   const [inputs, setInputs] = useState(INITIAL_INPUT_VALUES);
@@ -11,6 +13,17 @@ const Home = () => {
       [name]: Number(value),
     }));
   };
+
+  const investData = calculateInvestmentResults(inputs);
+  const formattedData = investData.map((curResult, index) => {
+    const investedCapital =
+      inputs.initialInvestment + curResult.annualInvestment * (index + 1);
+    return {
+      ...curResult,
+      investedCapital: investedCapital,
+      totalInterest: curResult.valueEndOfYear - investedCapital,
+    };
+  });
 
   return (
     <>
@@ -28,6 +41,8 @@ const Home = () => {
           />
         ))}
       </div>
+
+      <ResultsTable id="result" data={formattedData} />
     </>
   );
 };

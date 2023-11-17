@@ -3,7 +3,6 @@ import { formatter } from "../../util/investment";
 import { RESULTS_TABLE_HEADERS } from "./constatns";
 
 const ResultsTable = ({ data, ...props }) => {
-  console.log(data);
   return (
     <table {...props}>
       <thead>
