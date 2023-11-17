@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../../components/input";
 import { INITIAL_INPUT_VALUES, INPUTS_PROPS_LIST } from "./constants";
 
+//Teste
 const Home = () => {
   const [inputs, setInputs] = useState(INITIAL_INPUT_VALUES);
 
